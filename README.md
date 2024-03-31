@@ -22,5 +22,6 @@ based on sequence number.
   * Write up to 1MB/s. 1,000 records written/s with max individual payload of 1 MB.
   * Read up to 2MB/s. 10,000 records read/s. Max of 5 reads/s. Max individual read of 10MB with 5s timeout at capacity.
   * Enhanced fanout consumers  use a model of consumption where data is pushed to consumers to get around this. (2MB/s/consumer)
-* Depending on sdk `PutRecord` and `PutRecords` are the preferred approach.
+* Depending on sdk `PutRecord` and `PutRecords`(batching) are the preferred approach.
+* Sequence number can guarantee ordering for a shard
 * 
