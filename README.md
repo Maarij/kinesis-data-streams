@@ -3,10 +3,12 @@
 * Kinesis helps you get move towards making preventive/predictable actions because it is much closer to the datasource. 
 Compare this to traditional batch which is delayed by a seconds/minutes/hours/days+ time frame which makes them more 
 reactive and historical. This difference makes lets the system provide real-time analytics and makes it event driven.
+* When comparing sqs-sns to kinesis, consider  whether the streams are related to each other, message retention, multiple 
+consumers picking up the same message concurrently, or message ordering.
 
 # Kinesis Data Streams
 * pub/sub style messaging system for real-time data events
-* Desire to decoule system components to increase reliability, scalability, and general performance
+* Desire to decouple system components to increase reliability, scalability, and general performance
   * This is dependent on a standard data format
 * A stream is an abstraction for grouping messages of similar data structure. Streams are composed of scalable units of 
 parallelism called shards. This can lead to "hot shards" where 1 shard gets too much load. Charges are per shard.
@@ -20,4 +22,5 @@ based on sequence number.
   * Write up to 1MB/s. 1,000 records written/s with max individual payload of 1 MB.
   * Read up to 2MB/s. 10,000 records read/s. Max of 5 reads/s. Max individual read of 10MB with 5s timeout at capacity.
   * Enhanced fanout consumers  use a model of consumption where data is pushed to consumers to get around this. (2MB/s/consumer)
+* Depending on sdk `PutRecord` and `PutRecords` are the preferred approach.
 * 
