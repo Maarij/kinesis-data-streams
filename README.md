@@ -28,6 +28,5 @@ based on sequence number.
 * Two general types of kinesis consumers: Pull (Traditional) & Push (Enhanced Fanout)
   * Pull: ListShards, GetShardIterator, GetRecords
   * Push: RegisterStreamConsumer, SubscribeToShard (ParallelizationFactor to scale, MaxBatchingWindow to control throughput)
-* Kinesis Client Library (KCL) and others are preferred approach over `GetRecords` calls. There are multiple reasons for 
+* Kinesis Client Library (KCL), Lambda Consumer, and others are preferred approach over `GetRecords` calls. There are multiple reasons for 
 this but they relate to throughput and better design in general.
-*  
