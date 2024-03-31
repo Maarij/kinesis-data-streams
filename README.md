@@ -30,3 +30,8 @@ based on sequence number.
   * Push: RegisterStreamConsumer, SubscribeToShard (ParallelizationFactor to scale, MaxBatchingWindow to control throughput)
 * Kinesis Client Library (KCL), Lambda Consumer, and others are preferred approach over `GetRecords` calls. There are multiple reasons for 
 this but they relate to throughput and better design in general.
+
+# Kinesis Data Firehose
+* Simplify ingest and data transfer.
+* Provides an easy way to reliably transfer data from Kinesis Data Streams into other products and services.
+* Typically all configuration - no app specific code
