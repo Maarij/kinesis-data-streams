@@ -21,7 +21,11 @@ based on sequence number.
 * Shards have limits on how much they can read and write. 
   * Write up to 1MB/s. 1,000 records written/s with max individual payload of 1 MB.
   * Read up to 2MB/s. 10,000 records read/s. Max of 5 reads/s. Max individual read of 10MB with 5s timeout at capacity.
-  * Enhanced fanout consumers  use a model of consumption where data is pushed to consumers to get around this. (2MB/s/consumer)
+  * Enhanced fanout consumers  use a model of consumption where data is pushed to consumers to get around this (2MB/s/consumer).
 * Depending on sdk `PutRecord` and `PutRecords`(batching) are the preferred approach.
-* Sequence number can guarantee ordering for a shard
-* 
+* Sequence number can guarantee ordering for a shard.
+* Kinesis Producer Library is a java specific library optimized for high-throughput producing kinesis streams.
+* Two general types of kinesis consumers: Pull (Traditional) & Push (Enhanced Fanout)
+  * Pull: ListShards, GetShardIterator, GetRecords
+  * Push: RegisterStreamConsumer, SubscribeToShard (ParallelizationFactor to scale, MaxBatchingWindow to control throughput)
+  * 
